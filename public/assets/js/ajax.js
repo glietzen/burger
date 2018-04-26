@@ -24,6 +24,9 @@ $(function () {
 
     $('.add-burger').on('click', function(event) {
         event.preventDefault();
+        if ($('#burger').val().trim() === '') {
+            return alert('Please enter a burger');
+        }
         let newBurger = {
             burger_name: $('#burger').val().trim(),
             devoured: 0
