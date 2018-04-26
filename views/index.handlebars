@@ -3,21 +3,21 @@
 <h2>These burgers have not been devoured yet!</h2>
 
 <ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> cats/cat-block devoured=true}}
-    {{/unless}}
-  {{/each}}
+    {{#each burgers}}
+    <li>{{burger_name}}
+        <button>Devour</button>
+    </li>
+    {{/each}}
 </ul>
 
 
 <h2>Add a burger.</h2>
 <form class="create-form">
 
-  <div class="form-group">
-    <label for="burger">Burger Name:</label>
-    <input type="text" id="burger" name="burger_name">
-  </div>
+    <div class="form-group">
+        <label for="burger">Burger Name:</label>
+        <input type="text" id="burger" name="burger_name">
+    </div>
 
-  <button type="submit">Add Burger</button>
+    <button type="submit">Add Burger</button>
 </form>
