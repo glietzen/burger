@@ -10,7 +10,9 @@ let printQuestionMarks = (num) => {
 
 let objToSql = (ob) => {
     let arr = [];
-    for (let key in obj) {
+    
+    for (let key in ob) {
+        let value = ob[key];
         if (Object.hasOwnProperty.call(ob, key)) {
             if (typeof value === 'string' && value.indexOf(" ") >= 0) {
                 value = "'" + value + "'";
@@ -31,8 +33,8 @@ let orm = {
     },
     insertOne: (table, cols, vals, cb) => {
         let queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`;
-        console.log(queryString);
-        connection.query(queryString, (err, result) => {
+        console.log(queryString, vals);
+        connection.query(queryString, vals, (err, result) => {
             if (err) throw err;
             cb(result);
         });
