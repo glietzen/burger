@@ -1,13 +1,13 @@
 <div class="container mt-3">
-    <h1>Burgers!</h1>
-    <div class="row">
+    <h1 class="text-center p-3 m-2 bg-dark text-light">Burgers!</h1>
+    <div class="row mx-auto">
         <div class="col-sm">
             <h3>Eat these burgers!</h3>
             {{#each burgers}}
             <ul>
                 {{#unless devoured}}
-                <li>{{burger_name}}
-                    <button class="devour-burger" data-id="{{id}} " data-devoured="true">Devour</button>
+                <li>{{id}} - {{burger_name}}
+                    <button class="devour-burger btn-sm btn-danger" data-id="{{id}} " data-devoured="true">Devour</button>
                 </li>
                 {{/unless}}
             </ul>
@@ -18,22 +18,23 @@
             {{#each burgers}}
             <ul>
                 {{#if devoured}}
-                <li>{{burger_name}}</li>
+                <li>{{id}} - {{burger_name}}</li>
                 {{/if}}
             </ul>
             {{/each}}
         </div>
     </div>
 
+    <div class="row form-control m-5">
+        <h2>Add a burger.</h2>
+        <form class="create-form">
 
-    <h2>Add a burger.</h2>
-    <form class="create-form">
+            <div class="form-group">
+                <label for="burger">Burger Name:</label>
+                <input class="form-control" type="text" id="burger" name="burger_name">
+            </div>
 
-        <div class="form-group">
-            <label for="burger">Burger Name:</label>
-            <input type="text" id="burger" name="burger_name">
-        </div>
-
-        <button class="add-burger" type="submit">Add Burger</button>
-    </form>
+            <button class="add-burger btn-lg btn-success" type="submit">Add Burger</button>
+        </form>
+    </div>
 </div>
